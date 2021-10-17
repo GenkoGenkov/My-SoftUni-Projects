@@ -1,0 +1,68 @@
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace Stack
+{
+    public class StartUp
+    {
+        public static void Main(string[] args)
+        {
+            string firstLine = Console.ReadLine();
+
+            string[] firstLineParts = firstLine.Split(',');
+
+            int rows = int.Parse(firstLineParts[0]);
+            int cols = int.Parse(firstLineParts[1]);
+
+            int[,] numbers = new int[rows, cols];
+
+            for (int row = 0; row < rows; row++)
+            {
+                string line = Console.ReadLine();
+
+                string[] lineParts = line.Split(',');
+
+                for (int col = 0; col < cols; col++)
+                {
+                    numbers[row, col] = int.Parse(lineParts[col]);
+                }
+            }
+
+            long maxSum = 0;
+            int maxSumRow = 0;
+            int maxSumCol = 0;
+
+            for (int row = 0; row < numbers.GetLength(0) - 1; row++)
+            {
+                for (int col = 0; col < numbers.GetLength(1) - 1; col++)
+                {
+                    int sum = numbers[row, col] + numbers[row, col + 1] + numbers[row + 1, col] + numbers[row + 1, col + 1];
+
+                    if (sum > maxSum)
+                    {
+                        maxSum = sum;
+                        maxSumRow = row;
+                        maxSumCol = col;
+                    }
+                }
+            }
+
+            for (int row = maxSumRow; row < maxSumRow + 2; row++)
+            {
+                for (int col = maxSumCol; col < maxSumCol + 2; col++)
+                {
+                    Console.Write(numbers[row, col] + " ");
+                }
+
+                Console.WriteLine();
+            }
+
+            Console.WriteLine(maxSum);
+        }
+    }
+}
+
+
