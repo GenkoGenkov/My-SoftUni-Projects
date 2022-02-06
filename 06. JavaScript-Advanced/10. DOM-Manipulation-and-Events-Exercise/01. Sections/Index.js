@@ -1,0 +1,23 @@
+function create(input) {
+   
+    let parentElement = document.getElementById('content');
+    let elements = input;
+ 
+    for(let i = 0; i < elements.length; i++) {
+ 
+     let div = document.createElement('div');
+     let p = document.createElement('p');
+     let text = document.createTextNode(elements[i]);
+ 
+     div.appendChild(p);
+     p.appendChild(text);
+     p.style.display = 'none';
+ 
+     div.addEventListener('click', function(event) {
+ 
+         event.target.children[0].style.display = 'block';
+     });
+ 
+     parentElement.appendChild(div);
+    }
+ }
