@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "WZkPPwG0IDDIfBxE6xygUrXnZlco20Acdicc8Y6aq7cJHpwVld+E6i58yITQKIDazAV4U5ZXqNPENSevWMjilQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Gi\\Desktop\\RealEstates\\RealEstates.Models\\RealEstates.Models.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Gi\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\5.0.0\\microsoft.aspnetcore.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\Gi\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\5.0.0\\microsoft.windowsdesktop.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\Gi\\.nuget\\packages\\microsoft.netcore.app.ref\\5.0.0\\microsoft.netcore.app.ref.5.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
