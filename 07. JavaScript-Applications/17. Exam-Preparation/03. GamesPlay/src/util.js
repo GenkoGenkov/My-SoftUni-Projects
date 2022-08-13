@@ -1,43 +1,26 @@
-export function getUserData() {
+export function setUserData(data) {
 
-    return JSON.parse(localStorage.getItem('user'));
+    sessionStorage.setItem('userData', JSON.stringify(data));
 }
 
-export function getAccessToken() {
+export function getUserData() {
 
-    const user = getUserData();
-
-    if (user) {
-
-        return user.accessToken;
-    } else {
-        return null;
-    }
+    return JSON.parse(sessionStorage.getItem('userData'));
 }
 
 export function clearUserData() {
 
-    localStorage.removeItem('user');
-}
-
-export function setUserData(data) {
-
-    localStorage.setItem('user', JSON.stringify(data));
+    return sessionStorage.removeItem('userData');
 }
 
 export function createSubmitHandler(ctx, handler) {
 
-    return function(event) { 
-        
+    return function(event) {
+
         event.preventDefault();
 
         const formData = Object.fromEntries(new FormData(event.target));
 
         handler(ctx, formData, event);
     }
-}
-
-export function parseQuerystring(query = '') {
-
-    return Object.fromEntries(query.split('&').map(kvp => kvp.split('=')));
 }

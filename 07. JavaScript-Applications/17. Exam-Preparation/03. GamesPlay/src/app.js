@@ -1,6 +1,8 @@
 import page from '../node_modules/page/page.mjs';
-
 import { addRender } from './middlewears/render.js';
+import { addSession } from './middlewears/navUpdate.js';
+import { logout } from './api/api.js';
+
 import { catalogPage } from './views/catalog.js';
 import { createPage } from './views/create.js';
 import { detailsPage } from './views/details.js';
@@ -8,12 +10,6 @@ import { editPage } from './views/edit.js';
 import { homePage } from './views/home.js';
 import { loginPage } from './views/login.js';
 import { registerPage } from './views/register.js';
-
-import { logout } from './api/user.js';
-import { addSession } from './middlewears/session.js';
-
-import * as api from './api/games.js';
-window.api = api;
 
 page(addSession);
 page(addRender);
@@ -25,7 +21,7 @@ page('/register', registerPage);
 page('/create', createPage);
 page('/details/:id', detailsPage);
 page('/edit/:id', editPage);
-page('/logout', onLogout);
+page('/logout', onLogout)
 
 page.start();
 

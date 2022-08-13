@@ -1,13 +1,17 @@
 import * as api from './api.js';
 
+export const login = api.login;
+export const register = api.register;
+export const logout = api.logout;
+
 const endpoints = {
     recent: '/data/games?sortBy=_createdOn%20desc&distinct=category',
     games: '/data/games?sortBy=_createdOn%20desc',
     create: '/data/games',
     byId: '/data/games/',
-    deleteById: '/data/games/',
-    update: '/data/games/'
-};
+    delete: '/data/games/',
+    edit: '/data/games/'
+}
 
 export async function getRecent() {
 
@@ -19,9 +23,9 @@ export async function getAll() {
     return api.get(endpoints.games);
 }
 
-export async function getById(id) {
+export async function getGameById(id) {
 
-    return api.get(endpoints.byId + id);
+    return await api.get(endpoints.byId + id)
 }
 
 export async function create(data) {
@@ -29,12 +33,13 @@ export async function create(data) {
     return api.post(endpoints.create, data);
 }
 
-export async function update(id, data) {
+export async function editGame(id, game) {
 
-    return api.put(endpoints.update + id, data);
+    return api.put(endpoints.edit + id, game);
 }
 
-export async function deleteById(id) {
+export async function deleteGame(id) {
 
-    return api.del(endpoints.deleteById + id);
+    return api.del(endpoints.delete + id);
 }
+
